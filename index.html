@@ -385,24 +385,29 @@
     </button>
   </div>
 
-  <!-- Плашка «ЗАЛИШИТИ ЗАЯВКУ» (По скриншоту) -->
-  <div class="banner-modal-overlay" id="bannerModal">
-    <div class="banner-modal-card">
-      <button class="banner-close-btn" id="closeBannerModal" aria-label="Закрити">&times;</button>
+ <!-- Модальне вікно зворотного зв'язку (по макету) -->
+  <div class="modal-overlay" id="callbackModal">
+    <div class="consultation-card">
+      <button class="modal-close-icon" id="closeCallbackModal" aria-label="Закрити">&times;</button>
       
-      <h2 class="banner-title">ЗАЛИШИТИ ЗАЯВКУ</h2>
-      <p class="banner-desc">
-        Ви можете залишити заявку і наш експерт зв'яжеться з вами та зробить попередній розрахунок робіт
+      <span class="badge-tag">ЗВОРОТНИЙ ЗВ'ЯЗОК</span>
+      <h2 class="consultation-title">Обговоримо ваш майбутній дім?</h2>
+      <p class="consultation-subtitle">
+        Залиште контакти, і наш провідний інженер зв'яжеться з вами протягом 15 хвилин.
       </p>
 
-      <form class="banner-form" id="bannerForm">
-        <div class="banner-field">
-          <input type="text" id="bannerName" placeholder="Ваше ім'я" required>
+      <form class="consultation-form" id="consultationForm">
+        <div class="field-box">
+          <label for="userName">Ваше ім'я</label>
+          <input type="text" id="userName" placeholder="Олександр" required>
         </div>
-        <div class="banner-field">
-          <input type="tel" id="bannerPhone" placeholder="Номер телефону" required>
+
+        <div class="field-box">
+          <label for="userPhone">Номер телефону</label>
+          <input type="tel" id="userPhone" placeholder="+380 (99) 000-00-00" required>
         </div>
-        <button type="submit" class="btn-banner-submit">ВІДПРАВИТИ</button>
+
+        <button type="submit" class="btn-consultation-submit">Замовити консультацію</button>
       </form>
     </div>
   </div>
