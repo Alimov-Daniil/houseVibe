@@ -84,3 +84,42 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+// Логіка віджета дзвінка та плашки «ЗАЛИШИТИ ЗАЯВКУ»
+  const widgetPhoneBtn = document.getElementById('widgetPhoneBtn');
+  const bannerModal = document.getElementById('bannerModal');
+  const closeBannerModal = document.getElementById('closeBannerModal');
+  const bannerForm = document.getElementById('bannerForm');
+
+  function openBanner() {
+    if (bannerModal) {
+      bannerModal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeBanner() {
+    if (bannerModal) {
+      bannerModal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  }
+
+  if (widgetPhoneBtn) widgetPhoneBtn.addEventListener('click', openBanner);
+  if (closeBannerModal) closeBannerModal.addEventListener('click', closeBanner);
+
+  if (bannerModal) {
+    bannerModal.addEventListener('click', (e) => {
+      if (e.target === bannerModal) closeBanner();
+    });
+  }
+
+  if (bannerForm) {
+    bannerForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('bannerName').value;
+      const phone = document.getElementById('bannerPhone').value;
+      alert(`Дякуємо, ${name}! Наш експерт зв'яжеться з вами за номером ${phone}.`);
+      bannerForm.reset();
+      closeBanner();
+    });
+  }
