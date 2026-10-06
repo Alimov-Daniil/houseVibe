@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>homeVibe | Будівництво преміум-класу</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Підключення стилю з вашої папки css -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Офіційна бібліотека Google для відображення 3D -->
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+</head>
+<body>
+
+  <!-- Шапка сайту -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="#" class="logo">home<span>Vibe</span></a>
+      <nav class="nav">
+        <ul class="nav-list">
+          <li><a href="#projects">Проєкти</a></li>
+          <li><a href="#about">Про компанію</a></li>
+          <li><a href="#process">Етапи</a></li>
+          <li><a href="#contacts">Контакти</a></li>
+        </ul>
+      </nav>
+      <button class="header-phone-btn" id="openCallbackModal">Замовити дзвінок</button>
+    </div>
+  </header>
+
+  <!-- Головний екран (Офер) -->
+  <section class="hero-section">
+    <div class="container hero-container">
+      
+      <!-- Ліва колонка: Текстовий офер -->
+      <div class="hero-content">
+        <div class="badge">
+          <span class="badge-dot"></span>
+          Будівництво преміум-класу
+        </div>
+        
+        <h1 class="hero-title">
+          Будинок вашої <span class="accent-text">мрії</span> від фундаменту до ключів
+        </h1>
+        
+        <p class="hero-subtitle">
+          Проєктуємо та будуємо енергоефективні котеджі за індивідуальними проєктами. Фіксований кошторис, авторський нагляд та офіційна гарантія.
+        </p>
+
+        <div class="hero-actions">
+          <button class="btn btn-primary" id="heroCallbackBtn">
+            <span class="btn-icon">📞</span>
+            Зателефонуйте мені
+          </button>
+          <a href="#projects" class="btn btn-secondary">Каталог проєктів</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-item">
+            <strong>120+</strong>
+            <span>Збудованих котеджів</span>
+          </div>
+          <div class="stat-item">
+            <strong>10 років</strong>
+            <span>Гарантії на конструкції</span>
+          </div>
+          <div class="stat-item">
+            <strong>100%</strong>
+            <span>Фіксована ціна в договорі</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Права колонка: 3D модель будинку -->
+      <div class="hero-3d-box" id="hero3dBox">
+        <div class="model-glow"></div>
+        <div class="model-container">
+          <model-viewer 
+            id="houseModel"
+            src="vianney_house_2.glb" 
+            alt="3D Модель котеджу homeVibe"
+            bounds="tight"
+            auto-rotate
+            rotation-per-second="18deg"
+            camera-controls
+            shadow-intensity="1.5"
+            shadow-softness="0.8"
+            exposure="1.25"
+            camera-orbit="45deg 70deg auto"
+            camera-target="auto auto auto"
+            interpolation-decay="200"
+            interaction-prompt="none">
+
+            <!-- Лоадер під час завантаження -->
+            <div slot="progress-bar" class="model-loader">
+              <div class="spinner"></div>
+              <span>Завантаження 3D будинку...</span>
+            </div>
+          </model-viewer>
+        </div>
+
+        <!-- Кнопка роздивитися -->
+        <button class="btn-inspect-3d" id="inspectBtn">
+          <span class="inspect-icon">🔍</span>
+          <span class="inspect-text">Роздивитися проєкт</span>
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Модальне вікно для дзвінка («Зателефонуйте мені») -->
+  <div class="modal-overlay" id="callbackModal">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="closeCallbackModal" aria-label="Закрити">&times;</button>
+      <div class="modal-header">
+        <div class="modal-badge">Зворотний зв'язок</div>
+        <h3>Обговоримо ваш майбутній дім?</h3>
+        <p>Залиште контакти, і наш провідний інженер зв'яжеться з вами протягом 15 хвилин.</p>
+      </div>
+
+      <form class="modal-form" id="callbackForm">
+        <div class="input-group">
+          <label for="userName">Ваше ім'я</label>
+          <input type="text" id="userName" placeholder="Олександр" required>
+        </div>
+        <div class="input-group">
+          <label for="userPhone">Номер телефону</label>
+          <input type="tel" id="userPhone" placeholder="+380 (99) 000-00-00" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Замовити консультацію</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Підключення скрипту з вашої папки js -->
+  <script src="js/main.js"></script>
+</body>
+</html>
