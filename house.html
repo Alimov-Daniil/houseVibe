@@ -9,8 +9,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="./css/style.css?v=2.0">
+  <!-- Відносний шлях з версією проти кешування GitHub -->
+  <link rel="stylesheet" href="./css/style.css?v=3.0">
+
+  <!-- Бібліотека Google Model Viewer для 3D -->
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
 </head>
 <body class="house-page-body">
@@ -23,11 +25,11 @@
     </div>
   </header>
 
-  <!-- Детальна сторінка проєкту -->
+  <!-- Детальна секція проєкту -->
   <main class="house-detail-section">
     <div class="container house-detail-layout">
       
-      <!-- Ліва колонка: Інформація та замовлення дзвінка -->
+      <!-- Ліва колонка: Опис та форма -->
       <aside class="house-info-panel">
         <div class="badge" id="houseBadge">Преміум проєкт</div>
         <h1 class="house-title" id="houseTitle">Завантаження...</h1>
@@ -53,13 +55,15 @@
           </div>
         </div>
 
-        <!-- Форма замовлення дзвінка прямо на сторінці -->
+        <!-- Форма прорахунку -->
         <div class="call-action-box">
           <h3>Бажаєте отримати розрахунок?</h3>
           <p>Вкажіть номер, і ми надішлемо повну специфікацію та кошторис цього проєкту.</p>
           <form class="call-quick-form" id="houseCallForm">
-            <input type="text" id="clientName" placeholder="Ваше ім'я" required>
-            <input type="tel" id="clientPhone" placeholder="+380 (99) 000-00-00" required>
+            <div class="input-row">
+              <input type="text" id="clientName" placeholder="Ваше ім'я" required>
+              <input type="tel" id="clientPhone" placeholder="+380 (99) 000-00-00" required>
+            </div>
             <button type="submit" class="btn btn-primary btn-block">Замовити дзвінок інженера</button>
           </form>
         </div>
@@ -70,17 +74,17 @@
         <div class="viewer-wrapper">
           <model-viewer 
             id="detailedHouseModel"
-            src="" 
+            src="mobius_house.glb" 
             alt="3D проєкт будинку"
             bounds="tight"
             auto-rotate
             rotation-per-second="10deg"
             camera-controls
-            shadow-intensity="2"
+            shadow-intensity="1.5"
             exposure="1.2"
             camera-orbit="45deg 75deg auto"
             camera-target="auto auto auto"
-            interaction-prompt="auto">
+            interaction-prompt="none">
           </model-viewer>
           
           <div class="viewer-hint">
@@ -92,6 +96,6 @@
     </div>
   </main>
 
-  <script src="js/house.js"></script>
+  <script src="./js/house.js?v=3.0"></script>
 </body>
 </html>
