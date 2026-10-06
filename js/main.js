@@ -1,8 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  // ============================================================
   // 1. КЕРУВАННЯ ГОЛОВНОЮ 3D-МОДЕЛЛЮ (HERO)
-  // ============================================================
   const houseModel = document.getElementById('houseModel');
   const inspectBtn = document.getElementById('inspectBtn');
   const hero3dBox = document.getElementById('hero3dBox');
@@ -34,14 +32,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ============================================================
   // 2. МОДАЛЬНЕ ВІКНО «ЗВОРОТНИЙ ЗВ'ЯЗОК»
-  // ============================================================
   const callbackModal = document.getElementById('callbackModal');
   const closeCallbackModal = document.getElementById('closeCallbackModal');
   const consultationForm = document.getElementById('consultationForm');
 
-  // Кнопки виклику модалки:
   const heroCallbackBtn = document.getElementById('heroCallbackBtn');
   const headerPhoneBtn = document.getElementById('openCallbackModal');
   const widgetPhoneBtn = document.getElementById('widgetPhoneBtn');
