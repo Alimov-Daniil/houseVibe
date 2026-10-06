@@ -9,15 +9,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
-  <!-- Відносний шлях з версією проти кешування GitHub -->
-  <link rel="stylesheet" href="./css/style.css?v=3.0">
-
-  <!-- Бібліотека Google Model Viewer для 3D -->
+  <link rel="stylesheet" href="./css/style.css?v=6.0">
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
 </head>
 <body class="house-page-body">
 
-  <!-- Шапка -->
   <header class="header header-static">
     <div class="container header-container">
       <a href="index.html" class="logo">home<span>Vibe</span></a>
@@ -25,37 +21,35 @@
     </div>
   </header>
 
-  <!-- Детальна секція проєкту -->
   <main class="house-detail-section">
     <div class="container house-detail-layout">
       
-      <!-- Ліва колонка: Опис та форма -->
       <aside class="house-info-panel">
-        <div class="badge" id="houseBadge">Преміум проєкт</div>
-        <h1 class="house-title" id="houseTitle">Завантаження...</h1>
-        <p class="house-desc" id="houseDesc">Опис проєкту підвантажується...</p>
+        <div>
+          <div class="badge" id="houseBadge">Преміум проєкт</div>
+          <h1 class="house-title" id="houseTitle">Завантаження...</h1>
+          <p class="house-desc" id="houseDesc">Опис проєкту підвантажується...</p>
 
-        <!-- Характеристики -->
-        <div class="specs-grid">
-          <div class="spec-box">
-            <span class="spec-label">Загальна площа</span>
-            <strong class="spec-val" id="specArea">—</strong>
-          </div>
-          <div class="spec-box">
-            <span class="spec-label">Кількість поверхів</span>
-            <strong class="spec-val" id="specFloors">—</strong>
-          </div>
-          <div class="spec-box">
-            <span class="spec-label">Термін будівництва</span>
-            <strong class="spec-val" id="specTime">—</strong>
-          </div>
-          <div class="spec-box">
-            <span class="spec-label">Орієнтовна вартість</span>
-            <strong class="spec-val accent-val" id="specPrice">—</strong>
+          <div class="specs-grid">
+            <div class="spec-box">
+              <span class="spec-label">Загальна площа</span>
+              <strong class="spec-val" id="specArea">—</strong>
+            </div>
+            <div class="spec-box">
+              <span class="spec-label">Кількість поверхів</span>
+              <strong class="spec-val" id="specFloors">—</strong>
+            </div>
+            <div class="spec-box">
+              <span class="spec-label">Термін будівництва</span>
+              <strong class="spec-val" id="specTime">—</strong>
+            </div>
+            <div class="spec-box">
+              <span class="spec-label">Орієнтовна вартість</span>
+              <strong class="spec-val accent-val" id="specPrice">—</strong>
+            </div>
           </div>
         </div>
 
-        <!-- Форма прорахунку -->
         <div class="call-action-box">
           <h3>Бажаєте отримати розрахунок?</h3>
           <p>Вкажіть номер, і ми надішлемо повну специфікацію та кошторис цього проєкту.</p>
@@ -69,12 +63,11 @@
         </div>
       </aside>
 
-      <!-- Права колонка: Велика інтерактивна 3D-модель -->
       <section class="house-viewer-panel">
         <div class="viewer-wrapper">
           <model-viewer 
             id="detailedHouseModel"
-            src="mobius_house.glb" 
+            src="" 
             alt="3D проєкт будинку"
             bounds="tight"
             auto-rotate
@@ -96,6 +89,6 @@
     </div>
   </main>
 
-  <script src="./js/house.js?v=3.0"></script>
+  <script src="./js/house.js?v=6.0"></script>
 </body>
 </html>
