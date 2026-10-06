@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Деталі проєкту | homeVibe</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+</head>
+<body class="house-page-body">
+
+  <!-- Шапка -->
+  <header class="header header-static">
+    <div class="container header-container">
+      <a href="index.html" class="logo">home<span>Vibe</span></a>
+      <a href="index.html#projects" class="back-link">← Назад до каталогу</a>
+    </div>
+  </header>
+
+  <!-- Детальна сторінка проєкту -->
+  <main class="house-detail-section">
+    <div class="container house-detail-layout">
+      
+      <!-- Ліва колонка: Інформація та замовлення дзвінка -->
+      <aside class="house-info-panel">
+        <div class="badge" id="houseBadge">Преміум проєкт</div>
+        <h1 class="house-title" id="houseTitle">Завантаження...</h1>
+        <p class="house-desc" id="houseDesc">Опис проєкту підвантажується...</p>
+
+        <!-- Характеристики -->
+        <div class="specs-grid">
+          <div class="spec-box">
+            <span class="spec-label">Загальна площа</span>
+            <strong class="spec-val" id="specArea">—</strong>
+          </div>
+          <div class="spec-box">
+            <span class="spec-label">Кількість поверхів</span>
+            <strong class="spec-val" id="specFloors">—</strong>
+          </div>
+          <div class="spec-box">
+            <span class="spec-label">Термін будівництва</span>
+            <strong class="spec-val" id="specTime">—</strong>
+          </div>
+          <div class="spec-box">
+            <span class="spec-label">Орієнтовна вартість</span>
+            <strong class="spec-val accent-val" id="specPrice">—</strong>
+          </div>
+        </div>
+
+        <!-- Форма замовлення дзвінка прямо на сторінці -->
+        <div class="call-action-box">
+          <h3>Бажаєте отримати розрахунок?</h3>
+          <p>Вкажіть номер, і ми надішлемо повну специфікацію та кошторис цього проєкту.</p>
+          <form class="call-quick-form" id="houseCallForm">
+            <input type="text" id="clientName" placeholder="Ваше ім'я" required>
+            <input type="tel" id="clientPhone" placeholder="+380 (99) 000-00-00" required>
+            <button type="submit" class="btn btn-primary btn-block">Замовити дзвінок інженера</button>
+          </form>
+        </div>
+      </aside>
+
+      <!-- Права колонка: Велика інтерактивна 3D-модель -->
+      <section class="house-viewer-panel">
+        <div class="viewer-wrapper">
+          <model-viewer 
+            id="detailedHouseModel"
+            src="" 
+            alt="3D проєкт будинку"
+            bounds="tight"
+            auto-rotate
+            rotation-per-second="10deg"
+            camera-controls
+            shadow-intensity="2"
+            exposure="1.2"
+            camera-orbit="45deg 75deg auto"
+            camera-target="auto auto auto"
+            interaction-prompt="auto">
+          </model-viewer>
+          
+          <div class="viewer-hint">
+            <span>🖱️ Крутіть мишкою або пальцем для огляду на 360°</span>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <script src="js/house.js"></script>
+</body>
+</html>
