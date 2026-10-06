@@ -1,25 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
+
+  // ============================================================
+  // 1. КЕРУВАННЯ ГОЛОВНОЮ 3D-МОДЕЛЛЮ (HERO)
+  // ============================================================
   const houseModel = document.getElementById('houseModel');
   const inspectBtn = document.getElementById('inspectBtn');
   const hero3dBox = document.getElementById('hero3dBox');
   const inspectText = inspectBtn?.querySelector('.inspect-text');
 
-  // Налаштування камери після завантаження будинку
   if (houseModel) {
     houseModel.addEventListener('load', () => {
       houseModel.setAttribute('camera-orbit', '45deg 70deg auto');
       houseModel.setAttribute('bounds', 'tight');
-      // Приховуємо напис завантаження
       const loader = houseModel.querySelector('.model-loader');
       if (loader) loader.style.display = 'none';
     });
-
-    houseModel.addEventListener('error', (event) => {
-      console.error('Помилка завантаження локальної 3D моделі:', event);
-    });
   }
 
-  // Режим огляду моделі
   let isInspectMode = false;
   if (inspectBtn && houseModel) {
     inspectBtn.addEventListener('click', () => {
@@ -37,12 +34,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Модальне вікно дзвінка
+  // ============================================================
+  // 2. МОДАЛЬНЕ ВІКНО «ЗВОРОТНИЙ ЗВ'ЯЗОК»
+  // ============================================================
   const callbackModal = document.getElementById('callbackModal');
+  const closeCallbackModal = document.getElementById('closeCallbackModal');
+  const consultationForm = document.getElementById('consultationForm');
+
+  // Кнопки виклику модалки:
   const heroCallbackBtn = document.getElementById('heroCallbackBtn');
   const headerPhoneBtn = document.getElementById('openCallbackModal');
-  const closeCallbackModal = document.getElementById('closeCallbackModal');
-  const callbackForm = document.getElementById('callbackForm');
+  const widgetPhoneBtn = document.getElementById('widgetPhoneBtn');
 
   function openModal() {
     if (callbackModal) {
@@ -60,6 +62,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (heroCallbackBtn) heroCallbackBtn.addEventListener('click', openModal);
   if (headerPhoneBtn) headerPhoneBtn.addEventListener('click', openModal);
+  if (widgetPhoneBtn) widgetPhoneBtn.addEventListener('click', openModal);
+
   if (closeCallbackModal) closeCallbackModal.addEventListener('click', closeModal);
 
   if (callbackModal) {
@@ -72,54 +76,16 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Escape') closeModal();
   });
 
-  if (callbackForm) {
-    callbackForm.addEventListener('submit', (e) => {
+  if (consultationForm) {
+    consultationForm.addEventListener('submit', (e) => {
       e.preventDefault();
       const userName = document.getElementById('userName').value;
       const userPhone = document.getElementById('userPhone').value;
 
       alert(`Дякуємо, ${userName}! Ми зателефонуємо на номер ${userPhone} протягом 15 хвилин.`);
-      callbackForm.reset();
+      consultationForm.reset();
       closeModal();
     });
   }
+
 });
-// Логіка віджета дзвінка та плашки «ЗАЛИШИТИ ЗАЯВКУ»
-  const widgetPhoneBtn = document.getElementById('widgetPhoneBtn');
-  const bannerModal = document.getElementById('bannerModal');
-  const closeBannerModal = document.getElementById('closeBannerModal');
-  const bannerForm = document.getElementById('bannerForm');
-
-  function openBanner() {
-    if (bannerModal) {
-      bannerModal.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
-  }
-
-  function closeBanner() {
-    if (bannerModal) {
-      bannerModal.classList.remove('open');
-      document.body.style.overflow = '';
-    }
-  }
-
-  if (widgetPhoneBtn) widgetPhoneBtn.addEventListener('click', openBanner);
-  if (closeBannerModal) closeBannerModal.addEventListener('click', closeBanner);
-
-  if (bannerModal) {
-    bannerModal.addEventListener('click', (e) => {
-      if (e.target === bannerModal) closeBanner();
-    });
-  }
-
-  if (bannerForm) {
-    bannerForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const name = document.getElementById('bannerName').value;
-      const phone = document.getElementById('bannerPhone').value;
-      alert(`Дякуємо, ${name}! Наш експерт зв'яжеться з вами за номером ${phone}.`);
-      bannerForm.reset();
-      closeBanner();
-    });
-  }
