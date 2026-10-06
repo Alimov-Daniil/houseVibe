@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Підключення стилів -->
-  <link rel="stylesheet" href="./css/style.css?v=4.0">
+  <link rel="stylesheet" href="./css/style.css?v=6.0">
 
   <!-- Бібліотека Google для відображення 3D -->
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
@@ -123,7 +123,6 @@
       </div>
 
       <div class="advantages-grid">
-        <!-- 1. Комплексний сервіс -->
         <div class="advantage-card">
           <div class="advantage-icon-wrap">
             <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -135,7 +134,6 @@
           <p class="advantage-desc">Беремо на себе всі етапи робіт — від геології та фундаменту до фінішного оздоблення й комунікацій.</p>
         </div>
 
-        <!-- 2. Прозора вартість -->
         <div class="advantage-card">
           <div class="advantage-icon-wrap">
             <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -149,7 +147,6 @@
           <p class="advantage-desc">Вміле планування робіт і детальний точний кошторис без прихованих платежів чи несподіваних доплат.</p>
         </div>
 
-        <!-- 3. Договір -->
         <div class="advantage-card">
           <div class="advantage-icon-wrap">
             <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -164,7 +161,6 @@
           <p class="advantage-desc">Перед початком будівництва укладаємо юридичний договір, що гарантує якісне та вчасне виконання замовлення.</p>
         </div>
 
-        <!-- 4. Легка доставка -->
         <div class="advantage-card">
           <div class="advantage-icon-wrap">
             <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -178,7 +174,6 @@
           <p class="advantage-desc">Здійснюємо доставку сертифікованих будівельних матеріалів безпосередньо на ваш об'єкт власною логістикою.</p>
         </div>
 
-        <!-- 5. Якісні матеріали -->
         <div class="advantage-card">
           <div class="advantage-icon-wrap">
             <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -191,7 +186,6 @@
           <p class="advantage-desc">Широкий асортимент перевірених та екологічно безпечних матеріалів від провідних виробників Європи.</p>
         </div>
 
-        <!-- 6. Виконання робіт -->
         <div class="advantage-card">
           <div class="advantage-icon-wrap">
             <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -223,17 +217,10 @@
       </div>
 
       <div class="projects-grid">
-        <!-- Будинок 1: Villa Vianney -->
+        <!-- Будинок 1 -->
         <article class="project-card">
           <div class="project-3d-wrap">
-            <model-viewer 
-              src="vianney_house_2.glb" 
-              alt="Villa Vianney"
-              auto-rotate 
-              rotation-per-second="15deg" 
-              bounds="tight" 
-              interaction-prompt="none">
-            </model-viewer>
+            <model-viewer src="vianney_house_2.glb" alt="Villa Vianney" auto-rotate rotation-per-second="15deg" bounds="tight" interaction-prompt="none"></model-viewer>
           </div>
           <div class="project-info">
             <div class="project-tag">Преміум котедж</div>
@@ -243,21 +230,14 @@
               <span>Площа: <strong>240 м²</strong></span>
               <span>Термін: <strong>5 міс.</strong></span>
             </div>
-            <a href="house.html?id=vianney" class="btn btn-secondary btn-block">Дізнатись більше →</a>
+            <a href="house.html?id=vianney" class="btn btn-primary btn-block btn-more-project">Дізнатись більше →</a>
           </div>
         </article>
 
-        <!-- Будинок 2: Mobius House -->
+        <!-- Будинок 2 -->
         <article class="project-card">
           <div class="project-3d-wrap">
-            <model-viewer 
-              src="mobius_house.glb" 
-              alt="Mobius House"
-              auto-rotate 
-              rotation-per-second="15deg" 
-              bounds="tight" 
-              interaction-prompt="none">
-            </model-viewer>
+            <model-viewer src="mobius_house.glb" alt="Mobius House" auto-rotate rotation-per-second="15deg" bounds="tight" interaction-prompt="none"></model-viewer>
           </div>
           <div class="project-info">
             <div class="project-tag">Хай-тек</div>
@@ -267,21 +247,14 @@
               <span>Площа: <strong>320 м²</strong></span>
               <span>Термін: <strong>7 міс.</strong></span>
             </div>
-            <a href="house.html?id=mobius" class="btn btn-secondary btn-block">Дізнатись більше →</a>
+            <a href="house.html?id=mobius" class="btn btn-primary btn-block btn-more-project">Дізнатись більше →</a>
           </div>
         </article>
 
-        <!-- Будинок 3: Modern Luxury Villa -->
+        <!-- Будинок 3 -->
         <article class="project-card">
           <div class="project-3d-wrap">
-            <model-viewer 
-              src="modern_luxury_villa_house_home_building.glb" 
-              alt="Modern Luxury Villa"
-              auto-rotate 
-              rotation-per-second="15deg" 
-              bounds="tight" 
-              interaction-prompt="none">
-            </model-viewer>
+            <model-viewer src="modern_luxury_villa_house_home_building.glb" alt="Modern Luxury Villa" auto-rotate rotation-per-second="15deg" bounds="tight" interaction-prompt="none"></model-viewer>
           </div>
           <div class="project-info">
             <div class="project-tag">Вілла</div>
@@ -291,7 +264,7 @@
               <span>Площа: <strong>410 м²</strong></span>
               <span>Термін: <strong>8 міс.</strong></span>
             </div>
-            <a href="house.html?id=luxury" class="btn btn-secondary btn-block">Дізнатись більше →</a>
+            <a href="house.html?id=luxury" class="btn btn-primary btn-block btn-more-project">Дізнатись більше →</a>
           </div>
         </article>
       </div>
@@ -343,7 +316,7 @@
     </div>
   </footer>
 
-  <!-- Плаваючий віджет зв'язку справа знизу -->
+  <!-- Плаваючий віджет зв'язку -->
   <div class="quick-contact-widget">
     <a href="https://t.me" target="_blank" rel="noopener noreferrer" class="widget-btn telegram-btn" aria-label="Telegram" title="Написати в Telegram">
       <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
@@ -359,33 +332,28 @@
     </button>
   </div>
 
-  <!-- Модальне вікно зворотного зв'язку (по макету) -->
+  <!-- Модальне вікно зв'язку -->
   <div class="modal-overlay" id="callbackModal">
     <div class="consultation-card">
       <button class="modal-close-icon" id="closeCallbackModal" aria-label="Закрити">&times;</button>
-      
       <span class="badge-tag">ЗВОРОТНИЙ ЗВ'ЯЗОК</span>
       <h2 class="consultation-title">Обговоримо ваш майбутній дім?</h2>
-      <p class="consultation-subtitle">
-        Залиште контакти, і наш провідний інженер зв'яжеться з вами протягом 15 хвилин.
-      </p>
+      <p class="consultation-subtitle">Залиште контакти, і наш провідний інженер зв'яжеться з вами протягом 15 хвилин.</p>
 
       <form class="consultation-form" id="consultationForm">
         <div class="field-box">
           <label for="userName">Ваше ім'я</label>
           <input type="text" id="userName" placeholder="Олександр" required>
         </div>
-
         <div class="field-box">
           <label for="userPhone">Номер телефону</label>
           <input type="tel" id="userPhone" placeholder="+380 (99) 000-00-00" required>
         </div>
-
         <button type="submit" class="btn-consultation-submit">Замовити консультацію</button>
       </form>
     </div>
   </div>
 
-  <script src="./js/main.js?v=4.0"></script>
+  <script src="./js/main.js?v=6.0"></script>
 </body>
 </html>
