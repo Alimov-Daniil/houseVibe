@@ -838,3 +838,22 @@ model-viewer {
     height: 450px;
   }
 }
+/* Жорстке обмеження розмірів іконок переваг */
+.advantages-grid svg,
+.advantage-icon-wrap svg {
+  width: 36px !important;
+  height: 36px !important;
+  max-width: 36px !important;
+  max-height: 36px !important;
+  display: block !important;
+}
+
+.advantage-icon-wrap {
+  width: 72px !important;
+  height: 72px !important;
+  min-width: 72px !important;
+  min-height: 72px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
