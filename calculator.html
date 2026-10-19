@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Будівельний калькулятор вартості будинку | homeVibe</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="./css/style.css?v=7.0">
+</head>
+<body class="house-page-body">
+
+  <!-- Шапка сайту -->
+  <header class="header header-static">
+    <div class="container header-container">
+      <a href="index.html" class="logo">home<span>Vibe</span></a>
+      <nav class="nav">
+        <ul class="nav-list">
+          <li><a href="index.html#hero">Головна</a></li>
+          <li><a href="index.html#advantages">Переваги</a></li>
+          <li><a href="index.html#projects">Проєкти</a></li>
+          <li><a href="calculator.html" class="active-link">Калькулятор</a></li>
+          <li><a href="index.html#contacts">Контакти</a></li>
+        </ul>
+      </nav>
+      <a href="index.html" class="back-link">← На головну</a>
+    </div>
+  </header>
+
+  <!-- Головний блок калькулятора -->
+  <main class="calc-page-section">
+    <div class="container">
+      
+      <div class="calc-header-intro">
+        <div class="badge">
+          <span class="badge-dot"></span>
+          Онлайн розрахунок кошторису
+        </div>
+        <h1 class="calc-main-title">Будівельний калькулятор</h1>
+        <p class="calc-main-subtitle">
+          Розрахуйте орієнтовну вартість будівництва власного будинку за актуальними цінами в Україні. Оберіть параметри та отримайте прозорий бюджет.
+        </p>
+      </div>
+
+      <div class="calculator-layout">
+        
+        <!-- Ліва частина: Параметри будівництва -->
+        <div class="calc-inputs-panel">
+
+          <!-- Крок 1: Площа будинку -->
+          <div class="calc-group">
+            <div class="calc-group-header">
+              <label for="areaRange">1. Бажана площа будинку:</label>
+              <div class="area-value-display">
+                <span id="areaTextValue">160</span> м²
+              </div>
+            </div>
+            <div class="slider-control-wrap">
+              <input type="range" id="areaRange" min="70" max="450" step="5" value="160" class="custom-range-slider">
+              <div class="slider-scale">
+                <span>70 м²</span>
+                <span>200 м²</span>
+                <span>350 м²</span>
+                <span>450 м²</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Крок 2: Поверховість -->
+          <div class="calc-group">
+            <label class="calc-label">2. Кількість поверхів:</label>
+            <div class="calc-choice-grid grid-3">
+              <label class="choice-tile">
+                <input type="radio" name="floors" value="1" checked>
+                <div class="tile-card">
+                  <span class="tile-icon">🏡</span>
+                  <strong class="tile-title">1 поверх</strong>
+                  <span class="tile-desc">Зручно без сходів</span>
+                </div>
+              </label>
+
+              <label class="choice-tile">
+                <input type="radio" name="floors" value="2">
+                <div class="tile-card">
+                  <span class="tile-icon">🏛️</span>
+                  <strong class="tile-title">2 поверхи</strong>
+                  <span class="tile-desc">Оптимальна пляма</span>
+                </div>
+              </label>
+
+              <label class="choice-tile">
+                <input type="radio" name="floors" value="2.5">
+                <div class="tile-card">
+                  <span class="tile-icon">🏰</span>
+                  <strong class="tile-title">2 пов. + тераса</strong>
+                  <span class="tile-desc">Лаундж на даху</span>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Крок 3: Матеріал стін -->
+          <div class="calc-group">
+            <label class="calc-label">3. Технологія та матеріал стін:</label>
+            <div class="calc-choice-grid grid-3">
+              <label class="choice-tile">
+                <input type="radio" name="wallMaterial" value="aerocrete" checked>
+                <div class="tile-card">
+                  <strong class="tile-title">Газобетон D400</strong>
+                  <span class="tile-desc">Теплий та енергоефективний</span>
+                </div>
+              </label>
+
+              <label class="choice-tile">
+                <input type="radio" name="wallMaterial" value="ceramoblock">
+                <div class="tile-card">
+                  <strong class="tile-title">Керамоблок</strong>
+                  <span class="tile-desc">Міцний натуральний блок</span>
+                </div>
+              </label>
+
+              <label class="choice-tile">
+                <input type="radio" name="wallMaterial" value="monolith">
+                <div class="tile-card">
+                  <strong class="tile-title">Монолітний каркас</strong>
+                  <span class="tile-desc">Максимальна довговічність</span>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Крок 4: Комплектація -->
+          <div class="calc-group">
+            <label class="calc-label">4. Рівень комплектації:</label>
+            <div class="packages-list">
+              <label class="package-tile">
+                <input type="radio" name="packageLevel" value="box">
+                <div class="package-card">
+                  <div class="package-header">
+                    <strong>Коробка будинку</strong>
+                    <span class="package-price-tag">від $490/м²</span>
+                  </div>
+                  <p>Фундамент, несучі стіни, перекриття, кроквяна система, покрівля з утепленням та вентиляційні канали.</p>
+                </div>
+              </label>
+
+              <label class="package-tile">
+                <input type="radio" name="packageLevel" value="whitebox" checked>
+                <div class="package-card">
+                  <div class="package-header">
+                    <strong>Під чистове оздоблення (White Box)</strong>
+                    <span class="package-price-tag accent">від $820/м²</span>
+                  </div>
+                  <p>Коробка + преміум фасад, енергозберігаючі панорамні вікна, розведення електрики, опалення, тепла підлога, стяжка й штукатурка.</p>
+                </div>
+              </label>
+
+              <label class="package-tile">
+                <input type="radio" name="packageLevel" value="turnkey">
+                <div class="package-card">
+                  <div class="package-header">
+                    <strong>Під ключ (Turnkey Premium)</strong>
+                    <span class="package-price-tag">від $1 300/м²</span>
+                  </div>
+                  <p>Повний дизайнерський ремонт, покриття підлоги, керамограніт, сантехніка, міжкімнатні двері прихованого монтажу, освітлення.</p>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Крок 5: Додаткові елементи -->
+          <div class="calc-group">
+            <label class="calc-label">5. Додаткові опції:</label>
+            <div class="options-checklist">
+              <label class="custom-checkbox">
+                <input type="checkbox" id="optTerrace" value="7500">
+                <span class="checkbox-box"></span>
+                <span class="checkbox-text">Крита тераса з зоною барбекю (+ $7 500)</span>
+              </label>
+
+              <label class="custom-checkbox">
+                <input type="checkbox" id="optCarport" value="6000">
+                <span class="checkbox-box"></span>
+                <span class="checkbox-text">Навіс для 2 авто з брущаткою (+ $6 000)</span>
+              </label>
+
+              <label class="custom-checkbox">
+                <input type="checkbox" id="optGarage" value="15000">
+                <span class="checkbox-box"></span>
+                <span class="checkbox-text">Теплий капітальний гараж на 2 авто (+ $15 000)</span>
+              </label>
+
+              <label class="custom-checkbox">
+                <input type="checkbox" id="optPool" value="18000">
+                <span class="checkbox-box"></span>
+                <span class="checkbox-text">Вуличний басейн з підігрівом та чашею (+ $18 000)</span>
+              </label>
+
+              <label class="custom-checkbox">
+                <input type="checkbox" id="optSmartHome" value="4500">
+                <span class="checkbox-box"></span>
+                <span class="checkbox-text">Система «Розумний дім» та клімат-контроль (+ $4 500)</span>
+              </label>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Права частина: Стікі-підсумок з оновленням вартості -->
+        <aside class="calc-summary-panel">
+          <div class="summary-card-sticky">
+            <div class="summary-header">
+              <span class="badge">Попередній розрахунок</span>
+              <h3 class="summary-box-title">Орієнтовний кошторис</h3>
+            </div>
+
+            <div class="price-display-box">
+              <div class="price-main-val">
+                <span id="totalUsd">$0</span>
+              </div>
+              <div class="price-sub-val">
+                ≈ <span id="totalUah">0</span> грн
+              </div>
+              <div class="price-per-meter">
+                <span id="pricePerM2">$0</span> / м²
+              </div>
+            </div>
+
+            <div class="summary-details-list">
+              <div class="sum-row">
+                <span>Площа будинку:</span>
+                <strong id="sumArea">160 м²</strong>
+              </div>
+              <div class="sum-row">
+                <span>Поверховість:</span>
+                <strong id="sumFloors">1 поверх</strong>
+              </div>
+              <div class="sum-row">
+                <span>Матеріал:</span>
+                <strong id="sumMaterial">Газобетон D400</strong>
+              </div>
+              <div class="sum-row">
+                <span>Комплектація:</span>
+                <strong id="sumPackage">White Box</strong>
+              </div>
+              <div class="sum-row">
+                <span>Термін будівництва:</span>
+                <strong id="sumTimeline">5-6 місяців</strong>
+              </div>
+            </div>
+
+            <!-- Форма отримання розрахунку -->
+            <div class="calc-lead-form">
+              <p class="lead-form-caption">
+                Отримайте деталізовану розбивку кошторису з фіксацією цін у договорі:
+              </p>
+              <form id="calcOrderForm">
+                <div class="calc-form-field">
+                  <input type="text" id="calcClientName" placeholder="Ваше ім'я" required>
+                </div>
+                <div class="calc-form-field">
+                  <input type="tel" id="calcClientPhone" placeholder="+380 (99) 000-00-00" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Зафіксувати кошторис</button>
+              </form>
+            </div>
+
+            <div class="calc-guarantee-note">
+              🔒 Вартість фіксується у договорі та не змінюється в процесі робіт
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Підвал -->
+  <footer class="footer" id="contacts">
+    <div class="container footer-container">
+      <div class="footer-col brand-col">
+        <a href="index.html" class="logo">home<span>Vibe</span></a>
+        <p class="footer-desc">
+          Проєктування та будівництво преміальних енергоефективних котеджів. Повний цикл робіт від фундаменту до фінішного оздоблення.
+        </p>
+        <span class="footer-copy">© 2026 homeVibe. Всі права захищені.</span>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Навігація</h4>
+        <ul class="footer-links">
+          <li><a href="index.html#hero">Головна</a></li>
+          <li><a href="index.html#advantages">Наші переваги</a></li>
+          <li><a href="index.html#projects">Каталог проєктів</a></li>
+          <li><a href="calculator.html">Будівельний калькулятор</a></li>
+          <li><a href="index.html#contacts">Контакти</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Контакти та адреса</h4>
+        <ul class="footer-contacts">
+          <li>
+            <span class="contact-icon">📍</span>
+            <span>м. Київ, вул. Архітектора Вербицького, 14</span>
+          </li>
+          <li>
+            <span class="contact-icon">📞</span>
+            <a href="tel:+380800330033">+38 (080) 033-00-33</a>
+          </li>
+          <li>
+            <span class="contact-icon">✉️</span>
+            <a href="mailto:info@homevibe.ua">info@homevibe.ua</a>
+          </li>
+          <li>
+            <span class="contact-icon">🕒</span>
+            <span>Пн–Сб: 09:00 – 19:00</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./js/calculator.js"></script>
+</body>
+</html>
