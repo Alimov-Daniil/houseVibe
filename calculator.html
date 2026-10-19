@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="./css/style.css?v=7.0">
+  <link rel="stylesheet" href="./css/style.css?v=10.0">
 </head>
 <body class="house-page-body">
 
@@ -47,24 +47,25 @@
 
       <div class="calculator-layout">
         
-        <!-- Ліва частина: Параметри будівництва -->
+        <!-- ================= ЛІВА ЧАСТИНА: ПАРАМЕТРИ БУДИНКУ ================= -->
         <div class="calc-inputs-panel">
 
-          <!-- Крок 1: Площа будинку -->
+          <!-- Крок 1: Ввід площі вручну + повзунок -->
           <div class="calc-group">
             <div class="calc-group-header">
-              <label for="areaRange">1. Бажана площа будинку:</label>
-              <div class="area-value-display">
-                <span id="areaTextValue">160</span> м²
+              <label for="areaInput">1. Площа будинку (введіть або оберіть):</label>
+              <div class="area-input-box">
+                <input type="number" id="areaInput" min="20" max="1000" value="160" step="1">
+                <span>м²</span>
               </div>
             </div>
             <div class="slider-control-wrap">
-              <input type="range" id="areaRange" min="70" max="450" step="5" value="160" class="custom-range-slider">
+              <input type="range" id="areaRange" min="20" max="500" step="1" value="160" class="custom-range-slider">
               <div class="slider-scale">
-                <span>70 м²</span>
-                <span>200 м²</span>
-                <span>350 м²</span>
-                <span>450 м²</span>
+                <span>20 м²</span>
+                <span>150 м²</span>
+                <span>300 м²</span>
+                <span>500+ м²</span>
               </div>
             </div>
           </div>
@@ -78,7 +79,7 @@
                 <div class="tile-card">
                   <span class="tile-icon">🏡</span>
                   <strong class="tile-title">1 поверх</strong>
-                  <span class="tile-desc">Зручно без сходів</span>
+                  <span class="tile-desc">Ергономіка </span>
                 </div>
               </label>
 
@@ -87,7 +88,7 @@
                 <div class="tile-card">
                   <span class="tile-icon">🏛️</span>
                   <strong class="tile-title">2 поверхи</strong>
-                  <span class="tile-desc">Оптимальна пляма</span>
+                  <span class="tile-desc">Для сім'ї</span>
                 </div>
               </label>
 
@@ -207,28 +208,52 @@
             </div>
           </div>
 
-        </div>
+        </div> <!-- /calc-inputs-panel -->
 
-        <!-- Права частина: Стікі-підсумок з оновленням вартості -->
+        <!-- ================= ПРАВА ЧАСТИНА: ПЕРЕНЕСЕНИЙ БЛОК КОШТОРИСУ ================= -->
         <aside class="calc-summary-panel">
           <div class="summary-card-sticky">
-            <div class="summary-header">
+
+            <!-- Поле вводу бюджету з кнопкою фіксації -->
+            <div class="price-display-box" id="priceDisplayBox">
+              <span class="budget-input-label">Вкажіть бюджет або дивіться розрахунок:</span>
+              <div class="budget-input-wrapper">
+                <span class="currency-prefix">$</span>
+                <input type="number" id="budgetInput" min="10000" step="1000" placeholder="139840" value="139840">
+              </div>
+              <div class="price-sub-val">
+                ≈ <span id="calcUahVal">5 803 360</span> грн
+              </div>
+              <div class="price-per-meter">
+                <span id="calcRateVal">$874</span> / м²
+              </div>
+
+              <!-- Кнопка фіксації -->
+              <button type="button" class="btn-apply-estimate" id="applyEstimateBtn">
+                <span>📌 Зафіксувати цей кошторис</span>
+              </button>
+
+              <!-- Повідомлення про замалий бюджет -->
+              <div class="budget-error-box" id="budgetErrorBox" style="display: none;">
+                <span class="error-icon">⚠️</span>
+                <strong>Бюджет замалий для будівництва!</strong>
+                <p>Мінімальна вартість капітального будинку становить від <strong>$35 000</strong>.</p>
+              </div>
+            </div>
+
+            <!-- Блок результату "Орієнтовний кошторис" -->
+            <div class="summary-header" style="margin-top: 24px;">
               <span class="badge">Попередній розрахунок</span>
               <h3 class="summary-box-title">Орієнтовний кошторис</h3>
             </div>
 
-            <div class="price-display-box">
-              <div class="price-main-val">
-                <span id="totalUsd">$0</span>
-              </div>
-              <div class="price-sub-val">
-                ≈ <span id="totalUah">0</span> грн
-              </div>
-              <div class="price-per-meter">
-                <span id="pricePerM2">$0</span> / м²
-              </div>
+            <div class="summary-target-box" id="summaryTargetBox">
+              <div class="target-price-usd" id="summaryTotalUsd">$139,840</div>
+              <div class="target-price-uah">≈ <span id="summaryTotalUah">5 803 360</span> грн</div>
+              <div class="target-price-rate"><span id="summaryPricePerM2">$874</span> / м²</div>
             </div>
 
+            <!-- Характеристики обраного будинку -->
             <div class="summary-details-list">
               <div class="sum-row">
                 <span>Площа будинку:</span>
@@ -244,7 +269,7 @@
               </div>
               <div class="sum-row">
                 <span>Комплектація:</span>
-                <strong id="sumPackage">White Box</strong>
+                <strong id="sumPackage">White Box (під чистове)</strong>
               </div>
               <div class="sum-row">
                 <span>Термін будівництва:</span>
@@ -252,7 +277,7 @@
               </div>
             </div>
 
-            <!-- Форма отримання розрахунку -->
+            <!-- Форма зворотного зв'язку -->
             <div class="calc-lead-form">
               <p class="lead-form-caption">
                 Отримайте деталізовану розбивку кошторису з фіксацією цін у договорі:
@@ -271,11 +296,12 @@
             <div class="calc-guarantee-note">
               🔒 Вартість фіксується у договорі та не змінюється в процесі робіт
             </div>
+
           </div>
         </aside>
 
-      </div>
-    </div>
+      </div> <!-- /calculator-layout -->
+    </div> <!-- /container -->
   </main>
 
   <!-- Підвал -->
