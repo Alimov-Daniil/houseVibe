@@ -1279,3 +1279,420 @@ model-viewer {
   visibility: hidden !important;
   transform: scale(0.85) !important;
 }
+/* ==========================================================
+   БУДІВЕЛЬНИЙ ОНЛАЙН-КАЛЬКУЛЯТОР
+   ========================================================== */
+.calc-page-section {
+  padding: 60px 0 100px;
+}
+
+.calc-header-intro {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 50px;
+}
+
+.calc-main-title {
+  font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+  font-weight: 800;
+  margin: 12px 0 16px;
+  color: var(--text-white);
+  letter-spacing: 0.5px;
+}
+
+.calc-main-subtitle {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.calculator-layout {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 40px;
+  align-items: start;
+}
+
+.calc-inputs-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  padding: 40px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+}
+
+.calc-group {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding-bottom: 30px;
+}
+
+.calc-group:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.calc-group-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.calc-group-header label,
+.calc-label {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-white);
+  display: block;
+  margin-bottom: 16px;
+}
+
+.area-value-display {
+  background: rgba(245, 183, 0, 0.1);
+  border: 1px solid rgba(245, 183, 0, 0.3);
+  padding: 6px 16px;
+  border-radius: 20px;
+  color: var(--accent-yellow);
+  font-size: 18px;
+  font-weight: 800;
+}
+
+/* Повзунок площі */
+.custom-range-slider {
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 8px;
+  background: #22252c;
+  border-radius: 6px;
+  outline: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.custom-range-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--accent-yellow);
+  box-shadow: 0 0 15px rgba(245, 183, 0, 0.7);
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.custom-range-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+
+.slider-scale {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: 12px;
+  color: #656975;
+}
+
+/* Плитки вибору (радіокнопки) */
+.calc-choice-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.calc-choice-grid.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.choice-tile input {
+  display: none;
+}
+
+.tile-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 18px 14px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  height: 100%;
+}
+
+.tile-icon {
+  font-size: 24px;
+  margin-bottom: 2px;
+}
+
+.tile-title {
+  font-size: 14px;
+  color: var(--text-white);
+  font-weight: 700;
+}
+
+.tile-desc {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.choice-tile input:checked + .tile-card {
+  border-color: var(--accent-yellow);
+  background: rgba(245, 183, 0, 0.06);
+  box-shadow: 0 0 20px rgba(245, 183, 0, 0.12);
+}
+
+/* Комплектації */
+.packages-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.package-tile input {
+  display: none;
+}
+
+.package-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 20px 22px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.package-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.package-header strong {
+  font-size: 15px;
+  color: var(--text-white);
+}
+
+.package-price-tag {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.package-price-tag.accent {
+  color: var(--accent-yellow);
+}
+
+.package-card p {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.package-tile input:checked + .package-card {
+  border-color: var(--accent-yellow);
+  background: rgba(245, 183, 0, 0.05);
+  box-shadow: 0 0 20px rgba(245, 183, 0, 0.1);
+}
+
+/* Чекбокси опцій */
+.options-checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.custom-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  user-select: none;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-color);
+  padding: 12px 16px;
+  border-radius: 12px;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.custom-checkbox:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.custom-checkbox input {
+  display: none;
+}
+
+.checkbox-box {
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  border: 1.5px solid #4a4e58;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.custom-checkbox input:checked + .checkbox-box {
+  background: var(--accent-yellow);
+  border-color: var(--accent-yellow);
+}
+
+.custom-checkbox input:checked + .checkbox-box::after {
+  content: '✓';
+  color: #000;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.checkbox-text {
+  font-size: 13.5px;
+  color: #cfd2da;
+}
+
+/* Стікі-блок підсумку */
+.calc-summary-panel {
+  position: sticky;
+  top: 90px;
+}
+
+.summary-card-sticky {
+  background: #14161a;
+  border: 1px solid rgba(245, 183, 0, 0.25);
+  border-radius: 24px;
+  padding: 34px 28px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 35px rgba(245, 183, 0, 0.06);
+}
+
+.summary-box-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text-white);
+  margin-top: 8px;
+}
+
+.price-display-box {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 22px 18px;
+  text-align: center;
+  margin: 20px 0 24px;
+}
+
+.price-main-val {
+  font-size: 38px;
+  font-weight: 800;
+  color: var(--accent-yellow);
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+}
+
+.price-sub-val {
+  font-size: 14px;
+  color: #a0a4b0;
+  margin-top: 4px;
+}
+
+.price-per-meter {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 12px;
+  color: #7b808e;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 3px 12px;
+  border-radius: 12px;
+}
+
+.summary-details-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 20px;
+  margin-bottom: 22px;
+}
+
+.sum-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+}
+
+.sum-row span {
+  color: var(--text-muted);
+}
+
+.sum-row strong {
+  color: var(--text-white);
+}
+
+.lead-form-caption {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+
+.calc-lead-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.calc-form-field input {
+  width: 100%;
+  background: #1a1c22;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 13px 16px;
+  color: #fff;
+  font-size: 14px;
+  outline: none;
+  font-family: inherit;
+}
+
+.calc-form-field input:focus {
+  border-color: var(--accent-yellow);
+}
+
+.calc-guarantee-note {
+  font-size: 11px;
+  color: #6d7280;
+  text-align: center;
+  margin-top: 14px;
+  line-height: 1.4;
+}
+
+.nav-calc-link {
+  color: var(--accent-yellow) !important;
+  font-weight: 700 !important;
+}
+
+/* Адаптивність калькулятора */
+@media (max-width: 1024px) {
+  .calculator-layout {
+    grid-template-columns: 1fr;
+  }
+  .calc-summary-panel {
+    position: static;
+  }
+}
+
+@media (max-width: 600px) {
+  .calc-choice-grid.grid-3 {
+    grid-template-columns: 1fr;
+  }
+  .calc-inputs-panel {
+    padding: 26px 18px;
+  }
+}
