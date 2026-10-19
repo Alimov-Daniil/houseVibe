@@ -1697,3 +1697,317 @@ model-viewer {
   box-shadow: 0 0 15px rgba(245, 183, 0, 0.35);
   transform: translateY(-1px);
 }
+/* ==========================================================
+   ПОВНА АДАПТАЦІЯ ДЛЯ СМАРТФОНІВ ТА ПЛАНШЕТІВ (MOBILE RESPONSIVE)
+   ========================================================== */
+
+/* 1. Планшети та вузькі екрани (до 992px) */
+@media (max-width: 992px) {
+  .header-container {
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .nav-list {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px 20px;
+  }
+
+  .hero-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .hero-subtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-actions, 
+  .hero-stats {
+    justify-content: center;
+  }
+
+  .hero-3d-box {
+    height: 400px;
+  }
+
+  .calculator-layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .summary-card-sticky {
+    position: static;
+  }
+
+  .house-detail-layout {
+    grid-template-columns: 1fr !important;
+    gap: 25px !important;
+  }
+
+  .house-viewer-panel {
+    min-height: 440px !important;
+    height: 440px !important;
+  }
+
+  .advantages-grid,
+  .projects-grid,
+  .transformation-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 35px;
+  }
+
+  .footer-desc {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .footer-contacts li {
+    justify-content: center;
+  }
+}
+
+/* 2. Смартфони (до 768px) */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  /* Шапка */
+  .header {
+    padding: 16px 0;
+  }
+
+  .header-static {
+    padding: 14px 0;
+  }
+
+  .header-container {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .header-calc-btn {
+    font-size: 13px;
+    padding: 7px 14px;
+  }
+
+  /* Головний екран Hero */
+  .hero-section {
+    padding: 110px 0 40px;
+    min-height: auto;
+  }
+
+  .hero-title {
+    font-size: 28px;
+    line-height: 1.25;
+  }
+
+  .hero-subtitle {
+    font-size: 14px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .hero-3d-box {
+    height: 320px;
+  }
+
+  /* Слайдер «До / Після» */
+  .comparison-container {
+    height: 360px;
+    border-radius: 18px;
+  }
+
+  .comparison-badge {
+    top: 14px;
+    padding: 6px 14px;
+    font-size: 11px;
+  }
+
+  .badge-before { left: 14px; }
+  .badge-after { right: 14px; }
+
+  .handle-button {
+    width: 44px;
+    height: 44px;
+  }
+
+  .handle-button svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* Сторінка картки будинку house.html */
+  .house-detail-section {
+    padding: 30px 0 60px;
+  }
+
+  .house-info-panel {
+    padding: 24px 18px !important;
+    border-radius: 20px !important;
+  }
+
+  .house-title {
+    font-size: 24px;
+  }
+
+  .specs-grid {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  .input-row {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  .house-viewer-panel {
+    min-height: 340px !important;
+    height: 340px !important;
+    border-radius: 20px !important;
+  }
+
+  .viewer-wrapper,
+  .viewer-wrapper model-viewer {
+    min-height: 340px !important;
+  }
+
+  /* Сторінка калькулятора calculator.html */
+  .calc-page-section {
+    padding: 35px 0 70px;
+  }
+
+  .calc-header-intro {
+    margin-bottom: 30px;
+  }
+
+  .calc-main-title {
+    font-size: 26px;
+  }
+
+  .calc-inputs-panel {
+    padding: 24px 16px;
+    border-radius: 20px;
+    gap: 24px;
+  }
+
+  .calc-group {
+    padding-bottom: 22px;
+  }
+
+  .calc-group-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .calc-choice-grid.grid-3 {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .package-card {
+    padding: 16px 14px;
+  }
+
+  .package-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .summary-card-sticky {
+    padding: 24px 16px;
+    border-radius: 20px;
+  }
+
+  /* Адаптація великих сум у калькуляторі, щоб не вилазили за край */
+  .budget-input-wrapper {
+    padding: 6px 12px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .currency-prefix {
+    font-size: 26px;
+  }
+
+  #budgetInput {
+    font-size: 28px;
+    width: 100%;
+    min-width: 0;
+    text-align: center;
+  }
+
+  .target-price-usd {
+    font-size: 30px;
+    word-break: break-word;
+  }
+
+  /* Віджет швидкого зв'язку в кутку */
+  .quick-contact-widget {
+    bottom: 20px;
+    right: 20px;
+    gap: 10px;
+  }
+
+  .widget-btn {
+    width: 48px;
+    height: 48px;
+  }
+
+  .telegram-btn {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* 3. Маленькі екрани (до 400px) */
+@media (max-width: 400px) {
+  .hero-title {
+    font-size: 24px;
+  }
+
+  .calc-main-title {
+    font-size: 22px;
+  }
+
+  #budgetInput {
+    font-size: 24px;
+  }
+
+  .target-price-usd {
+    font-size: 26px;
+  }
+
+  .area-input-box input {
+    font-size: 17px;
+    width: 60px;
+  }
+}
