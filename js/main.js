@@ -66,6 +66,69 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.target === callbackModal) closeModal();
     });
   }
+ // ============================================================
+  // СЛАЙДЕР ПОРІВНЯННЯ «ДО / ПІСЛЯ»
+  // ============================================================
+  const comparisonSlider = document.getElementById('beforeAfterSlider');
+
+  if (comparisonSlider) {
+    const badgeBefore = comparisonSlider.querySelector('.badge-before');
+    const badgeAfter = comparisonSlider.querySelector('.badge-after');
+    let isSliding = false;
+
+    const setSliderPosition = (clientX) => {
+      const rect = comparisonSlider.getBoundingClientRect();
+      let percentage = ((clientX - rect.left) / rect.width) * 100;
+
+      // Обмежуємо значення в межах від 0% до 100%
+      if (percentage < 0) percentage = 0;
+      if (percentage > 100) percentage = 100;
+
+      comparisonSlider.style.setProperty('--position', `${percentage}%`);
+
+      // 1. Якщо повзунок СПРАВА (>= 85%) -> зникає напис "ДО" (який зліва)
+      if (badgeBefore) {
+        if (percentage >= 85) {
+          badgeBefore.classList.add('is-hidden');
+        } else {
+          badgeBefore.classList.remove('is-hidden');
+        }
+      }
+
+      // 2. Якщо повзунок ЗЛІВА (<= 15%) -> зникає напис "ПІСЛЯ" (який справа)
+      if (badgeAfter) {
+        if (percentage <= 15) {
+          badgeAfter.classList.add('is-hidden');
+        } else {
+          badgeAfter.classList.remove('is-hidden');
+        }
+      }
+    };
+
+    // Підтримка мишки та сенсорних екранів
+    comparisonSlider.addEventListener('pointerdown', (e) => {
+      isSliding = true;
+      comparisonSlider.setPointerCapture(e.pointerId);
+      setSliderPosition(e.clientX);
+    });
+
+    comparisonSlider.addEventListener('pointermove', (e) => {
+      if (!isSliding) return;
+      setSliderPosition(e.clientX);
+    });
+
+    const stopSliding = (e) => {
+      if (isSliding) {
+        isSliding = false;
+        try {
+          comparisonSlider.releasePointerCapture(e.pointerId);
+        } catch (err) {}
+      }
+    };
+
+    comparisonSlider.addEventListener('pointerup', stopSliding);
+    comparisonSlider.addEventListener('pointercancel', stopSliding);
+  }
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeModal();
